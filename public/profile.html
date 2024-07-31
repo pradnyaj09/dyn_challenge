@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+</head>
+<body>
+    <h2>Profile</h2>
+    <div id="profileInfo"></div>
+    <script>
+        document.addEventListener('DOMContentLoaded', async function() {
+            const token = localStorage.getItem('idToken');
+            const username = localStorage.getItem('username');
+            if (!token) {
+                alert('Please sign in first.');
+                window.location.href = '/signin.html';
+                return;
+            }
+            const response = await fetch('/profile', {
+                method: 'GET',
+                headers: {
+                    'idToken': `${token}`,
+                    'username': `${username}`
+                }
+            });
+            const data = await response.json();
+            console.log('profile response', data)
+            if (data) {
+                document.getElementById('profileInfo').innerHTML = `
+                    <p>${data.message}</p>
+                `;
+            } else {
+                alert('Failed to load profile.');
+            }
+        });
+    </script>
+</body>
+</html>
