@@ -30,8 +30,9 @@
                 body: JSON.stringify({ emailId: emailId, password: password, favSport: favSport }),
             });
             const data = await response.json();
-            console.log(data);
-            alert('Sign up successful!');
+            if(data.statusCode===200){
+                alert('Sign up successful!');
+            }else alert('Sign up failed')
         });
     </script>
 </body>
