@@ -9,7 +9,7 @@ For this challenge, NestJS which is Node.js based framework was used to build th
 ## Features
 
 - **User Sign UP**: Allows users to register with their email ID, password and a favourite sport/sports.
-- **USer Sign-in**: Authenticates users with their email ID and password.
+- **User Sign-in**: Authenticates users with their email ID and password.
 - **Integration with AWS Cognito**: Utilizes AWS Cognito for user management and authentication.
 
 ## Technologies Used
@@ -50,7 +50,7 @@ After running the application using one of the approaches mentioned above, the a
 
 
 ### Offered API Endpoints:
-1. Sign-up:
+1. **Sign-up**:
 - Endpoint: `/auth/signup`
 - Method: POST
 - Request Body: 
@@ -69,7 +69,7 @@ After running the application using one of the approaches mentioned above, the a
   }
 - Available at: `https://localhost:3000/signup.html`
 
-2. Sign-in:
+2. **Sign-in**:
 - Endpoint: `/auth/signin`
 - Method: POST
 - Request Body: 
@@ -90,7 +90,7 @@ After running the application using one of the approaches mentioned above, the a
   }
 - Available at: `https://localhost:3000/signin.html`
 
-2. Profile:
+3. **Profile**:
 - Endpoint: `/profile`
 - Method: GET
 - Request Headers: 
