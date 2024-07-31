@@ -2,9 +2,6 @@ import { Injectable } from '@nestjs/common';
 import { ExternalAuthConfig } from './externalAuth.config';
 import { CustomSignupRequest } from '../auth/auth.service';
 import {
-    CognitoUserPool,
-} from 'amazon-cognito-identity-js';
-import {
     CognitoIdentityProviderClient,
     InitiateAuthCommand,
     InitiateAuthRequest,
@@ -14,15 +11,9 @@ import {
 
 @Injectable()
 export class ExternalAuthService {
-    // private readonly userPool: CognitoUserPool;
     private readonly providerClient: CognitoIdentityProviderClient;
 
     constructor(private readonly authConfig: ExternalAuthConfig) {
-        // this.userPool = new CognitoUserPool({
-        //     UserPoolId: this.authConfig.userPoolId,
-        //     ClientId: this.authConfig.clientId,
-        // });
-
         this.providerClient = new CognitoIdentityProviderClient({
             region: this.authConfig.region
         });
