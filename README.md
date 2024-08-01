@@ -106,6 +106,8 @@ After running the application using one of the approaches mentioned above, the a
   }
 - Available at: `https://localhost:3000/profile.html`
 
+**This application is publicly available at http://3.147.238.185:80/ .**
+
 
 
 
