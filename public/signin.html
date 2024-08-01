@@ -27,8 +27,7 @@
                 body: JSON.stringify({ emailId: emailId, password: password }),
             });
             const result = await response.json();
-            console.log(result.data.token);
-            if (result.data.token) {
+            if (result && result.statusCode === 200 && result.data) {
                 localStorage.setItem('idToken', result.data.token);
                 localStorage.setItem('username', result.data.username);
                 alert('Sign in successful!');

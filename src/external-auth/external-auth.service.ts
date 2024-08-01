@@ -71,12 +71,8 @@ export class ExternalAuthService {
             }
             
         } catch (error) {
-            console.log("ERROR IN EXTERNAL SIGNIN: ",  error)
-            return {
-                statusCode: error.$metadata? error.$metadata.httpStatusCode : 401,
-                message: "Authentication Failure",
-                data: null
-            }
+            console.log("ERROR IN EXTERNAL SIGNIN: ",  error);
+            throw error;
         }
         
     }

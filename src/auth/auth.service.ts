@@ -44,11 +44,21 @@ export class AuthService {
     }
 
     async signin(requestBody: SigninDto):Promise<SigninResponse>{
-        const extRequest: AuthExtRequest = {
-            username: requestBody.emailId,
-            password: requestBody.password
+        try {
+            const extRequest: AuthExtRequest = {
+                username: requestBody.emailId,
+                password: requestBody.password
+            }
+            const response = await this.extService.signin(extRequest.username, extRequest.password);
+            return response
+        } catch (error) {
+            console.log("ERROR IN SIGNIN: ",  error)
+            return {
+                statusCode: error.$metadata? error.$metadata.httpStatusCode : 401,
+                message: "Authentication Failure",
+                data: null
+            }
         }
-        const response = await this.extService.signin(extRequest.username, extRequest.password);
-        return response
+
     }
 }
